@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-07T14:33:50.082Z
+  modifiedAt: 2026-08-07T14:56:09.572Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -288,6 +288,68 @@ project:
             diamonds.hist(bins=50, figsize=(20, 15))
 
             plt.show()
+          metadata: {}
+        - id: a14bfaebb71048aa94a8c42d04c5e61b
+          blockGroup: 5bbc8c9b53c043afb565ec9fdad9f63a
+          sortingKey: "000027"
+          type: text-cell-h2
+          content: Multivariate Analysis
+          metadata:
+            formattedRanges: []
+        - id: 73c86a14f3b747dbb589a87a8ebca0b3
+          blockGroup: e0e4c995d8b6436da698f74c309c4bba
+          sortingKey: "000028"
+          type: text-cell-h3
+          content: Categorical Features
+          metadata:
+            formattedRanges: []
+        - id: a1ffda3687cb4b9ca48d636180b138ee
+          blockGroup: 9fe8f67fc5514bffa244c4890d03d9ac
+          sortingKey: "000029"
+          type: code
+          content: >-
+            cat_features = diamonds.select_dtypes(include='object').columns.to_list()
+
+
+            for col in cat_features:
+                sns.catplot(x=col, y='price', kind='bar', dodge=False, height=4, aspect=3, data=diamonds, palette="Set3")
+                plt.title("Rata-rata 'price' Relatif terhadap - {}".format(col))
+          metadata: {}
+        - id: a829a29a6dc4421297ad5d6094ce4ad7
+          blockGroup: f165341d7f5e4aaa97ee86e9219c6d59
+          sortingKey: "000030"
+          type: text-cell-h3
+          content: Numerical Features
+          metadata:
+            formattedRanges: []
+        - id: 14e99659fac64b758766a5caaea2205a
+          blockGroup: 4f70ba9fa544469c97267d00a3ea6d9e
+          sortingKey: "000031"
+          type: code
+          content: sns.pairplot(diamonds, diag_kind='kde')
+          metadata: {}
+        - id: a6e298bd927f4e11b287961765b31ba7
+          blockGroup: e06d0f271050486081b572598d3cdfe5
+          sortingKey: "000032"
+          type: code
+          content: >-
+            plt.figure(figsize=(10, 8))
+
+            correlation_matrix = diamonds[numerical_features].corr().round(2)
+
+
+            sns.heatmap(data=correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+
+            plt.title("Correlation Matrix untuk Fitur Numerik ", size=20)
+          metadata: {}
+        - id: b9643699b2ab47bbbe4094c1174cec41
+          blockGroup: 44a06d239ffe448dbb718437a1de8fee
+          sortingKey: "000033"
+          type: code
+          content: >-
+            diamonds.drop(['depth'], inplace=True, axis=1)
+
+            diamonds.head()
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
