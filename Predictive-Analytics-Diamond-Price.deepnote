@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-07T07:47:32.549Z
+  modifiedAt: 2026-08-07T09:22:52.966Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -35,7 +35,7 @@ project:
 
             import seaborn as sns
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
         - id: f2f63b779d394ddca85a0f916947ce02
           blockGroup: fcad79c9ae2d4d02af6dd0ece4ec49a0
           sortingKey: "000002"
@@ -48,7 +48,7 @@ project:
 
             diamonds
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
         - id: 2a0ae02e37344199b358af7f554abaf6
           blockGroup: 803a7d97454c441295e8a301e5f02a0c
           sortingKey: "000003"
@@ -63,7 +63,7 @@ project:
           type: code
           content: diamonds.info()
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
         - id: f3b9d2dd244247e5be219b4071a80179
           blockGroup: 1490359a312048deaab75c145b25396b
           sortingKey: "000005"
@@ -71,7 +71,7 @@ project:
           type: code
           content: diamonds.describe()
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
         - id: f9a2c8a96cdd4decb00167e0787a812e
           blockGroup: e3df4690ba3e4528abe4fb89603d55a9
           sortingKey: "000006"
@@ -98,7 +98,7 @@ project:
 
             print("z = 0:", z)
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
         - id: 5bd41ad0a2bb4f10beda2b588c99e085
           blockGroup: 5f9ccea68b0f4c97a2b54caa22500026
           sortingKey: "000008"
@@ -106,7 +106,7 @@ project:
           type: code
           content: diamonds.loc[(diamonds.z == 0)]
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
             deepnote_table_state:
               sortBy: []
               filters: []
@@ -140,7 +140,7 @@ project:
 
             diamonds.shape
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
         - id: fbec3efa69934e7d9f198bc59b56837c
           blockGroup: 50febd1e15b04ebfbf8855f2556ffef6
           sortingKey: "000010"
@@ -148,7 +148,61 @@ project:
           type: code
           content: diamonds.describe()
           metadata:
-            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+        - id: 27deae849a9044caa66e046e46a70c5c
+          blockGroup: a1439109a0c74f02bf7d0ef7afeb2a35
+          sortingKey: "000011"
+          type: text-cell-h2
+          content: Handle Outliers
+          metadata:
+            formattedRanges: []
+        - id: e967972f950741ff84127a22d4c11cb3
+          blockGroup: 7f45d7a9040e499cbca94df77f9a859b
+          sortingKey: "000012"
+          contentHash: f53b67aa
+          type: code
+          content: sns.boxplot(x=diamonds['carat'])
+          metadata:
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+        - id: 588f4f5ae13c4c429980a875550a9ed6
+          blockGroup: 79f9657d389c44c89dc0b354c1f2e1b5
+          sortingKey: "000013"
+          contentHash: 37d10fa6
+          type: code
+          content: sns.boxplot(x=diamonds['table'])
+          metadata:
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+        - id: 69b58e78946548e8ac699cf44c6e5c94
+          blockGroup: 56231a6d5ce74c0a89dba106605b5fd7
+          sortingKey: "000014"
+          contentHash: 262880c1
+          type: code
+          content: sns.boxplot(x=diamonds['x'])
+          metadata:
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+        - id: da3d3619ee504c2bafe08a448b345219
+          blockGroup: 27949cdb5f7f42708c501f98044d20cb
+          sortingKey: "000015"
+          contentHash: 41d2b3e
+          type: code
+          content: >-
+            numeric_cols = diamonds.select_dtypes(include='number').columns
+
+            Q1 = diamonds[numeric_cols].quantile(0.25)
+
+            Q3 = diamonds[numeric_cols].quantile(0.75)
+
+            IQR = Q3 - Q1
+
+
+            filter_outliers = ~((diamonds[numeric_cols] < (Q1 - 1.5 * IQR)) |
+                                (diamonds[numeric_cols] > (Q3 + 1.5 * IQR))).any(axis=1)
+
+            diamonds = diamonds[filter_outliers]
+
+            diamonds.shape
+          metadata:
+            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
       isModule: false
