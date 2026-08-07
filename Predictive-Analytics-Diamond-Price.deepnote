@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-07T04:31:54.906Z
+  modifiedAt: 2026-08-07T07:47:32.549Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -35,7 +35,7 @@ project:
 
             import seaborn as sns
           metadata:
-            execution_context_id: ca19a55a-472b-4756-9b3c-0d1c4c2d7031
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
         - id: f2f63b779d394ddca85a0f916947ce02
           blockGroup: fcad79c9ae2d4d02af6dd0ece4ec49a0
           sortingKey: "000002"
@@ -48,7 +48,107 @@ project:
 
             diamonds
           metadata:
-            execution_context_id: ca19a55a-472b-4756-9b3c-0d1c4c2d7031
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+        - id: 2a0ae02e37344199b358af7f554abaf6
+          blockGroup: 803a7d97454c441295e8a301e5f02a0c
+          sortingKey: "000003"
+          type: text-cell-h1
+          content: EDA
+          metadata:
+            formattedRanges: []
+        - id: cef728904ff04927b7154c65fe748262
+          blockGroup: 75f523f607c9419c8ef2c68476068a05
+          sortingKey: "000004"
+          contentHash: f5de48c4
+          type: code
+          content: diamonds.info()
+          metadata:
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+        - id: f3b9d2dd244247e5be219b4071a80179
+          blockGroup: 1490359a312048deaab75c145b25396b
+          sortingKey: "000005"
+          contentHash: d220987a
+          type: code
+          content: diamonds.describe()
+          metadata:
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+        - id: f9a2c8a96cdd4decb00167e0787a812e
+          blockGroup: e3df4690ba3e4528abe4fb89603d55a9
+          sortingKey: "000006"
+          type: text-cell-h2
+          content: Handle Missing Values
+          metadata:
+            formattedRanges: []
+        - id: f74cb26a8cde40fb88121baf2f5de5b7
+          blockGroup: 4aea35d944f546aaa546ec1859e55839
+          sortingKey: "000007"
+          contentHash: 701d6d31
+          type: code
+          content: >-
+            x = (diamonds.x == 0).sum()
+
+            y = (diamonds.y == 0).sum()
+
+            z = (diamonds.z == 0).sum()
+
+
+            print("x = 0:", x)
+
+            print("y = 0:", y)
+
+            print("z = 0:", z)
+          metadata:
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+        - id: 5bd41ad0a2bb4f10beda2b588c99e085
+          blockGroup: 5f9ccea68b0f4c97a2b54caa22500026
+          sortingKey: "000008"
+          contentHash: 83201afb
+          type: code
+          content: diamonds.loc[(diamonds.z == 0)]
+          metadata:
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+            deepnote_table_state:
+              sortBy: []
+              filters: []
+              pageSize: 50
+              pageIndex: 0
+              columnOrder:
+                - carat
+                - cut
+                - color
+                - clarity
+                - depth
+                - table
+                - price
+                - x
+                - y
+                - z
+              hiddenColumnIds: []
+              columnDisplayNames: []
+              conditionalFilters: []
+              cellFormattingRules: []
+              wrappedTextColumnIds: []
+            deepnote_table_loading: false
+        - id: b7380277d3db4fc78f9d8cf597949685
+          blockGroup: c16e483117f1438ab36e30ceed006855
+          sortingKey: "000009"
+          contentHash: 178e761c
+          type: code
+          content: >-
+            diamonds = diamonds.loc[(diamonds[['x', 'y', 'z']]!=0).all(axis=1)]
+
+
+            diamonds.shape
+          metadata:
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
+        - id: fbec3efa69934e7d9f198bc59b56837c
+          blockGroup: 50febd1e15b04ebfbf8855f2556ffef6
+          sortingKey: "000010"
+          contentHash: d220987a
+          type: code
+          content: diamonds.describe()
+          metadata:
+            execution_context_id: cb8de6ba-1d8d-4fae-ba12-9417c2124cf9
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
       isModule: false
