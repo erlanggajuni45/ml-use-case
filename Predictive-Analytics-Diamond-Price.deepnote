@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-07T09:22:52.966Z
+  modifiedAt: 2026-08-07T14:33:50.082Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -22,7 +22,6 @@ project:
         - id: 6d6b162bf44e4d159ce1e85ab40114f4
           blockGroup: 9bb44c839d2943859d6b309fb2867454
           sortingKey: "000001"
-          contentHash: b4ed8d22
           type: code
           content: >-
             import numpy as np
@@ -34,12 +33,10 @@ project:
             %matplotlib inline
 
             import seaborn as sns
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: f2f63b779d394ddca85a0f916947ce02
           blockGroup: fcad79c9ae2d4d02af6dd0ece4ec49a0
           sortingKey: "000002"
-          contentHash: f8ba190f
           type: code
           content: >-
             url = 'https://raw.githubusercontent.com/tidyverse/ggplot2/master/data-raw/diamonds.csv'
@@ -47,8 +44,7 @@ project:
             diamonds = pd.read_csv(url)
 
             diamonds
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: 2a0ae02e37344199b358af7f554abaf6
           blockGroup: 803a7d97454c441295e8a301e5f02a0c
           sortingKey: "000003"
@@ -59,19 +55,15 @@ project:
         - id: cef728904ff04927b7154c65fe748262
           blockGroup: 75f523f607c9419c8ef2c68476068a05
           sortingKey: "000004"
-          contentHash: f5de48c4
           type: code
           content: diamonds.info()
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: f3b9d2dd244247e5be219b4071a80179
           blockGroup: 1490359a312048deaab75c145b25396b
           sortingKey: "000005"
-          contentHash: d220987a
           type: code
           content: diamonds.describe()
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: f9a2c8a96cdd4decb00167e0787a812e
           blockGroup: e3df4690ba3e4528abe4fb89603d55a9
           sortingKey: "000006"
@@ -82,7 +74,6 @@ project:
         - id: f74cb26a8cde40fb88121baf2f5de5b7
           blockGroup: 4aea35d944f546aaa546ec1859e55839
           sortingKey: "000007"
-          contentHash: 701d6d31
           type: code
           content: >-
             x = (diamonds.x == 0).sum()
@@ -97,16 +88,13 @@ project:
             print("y = 0:", y)
 
             print("z = 0:", z)
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: 5bd41ad0a2bb4f10beda2b588c99e085
           blockGroup: 5f9ccea68b0f4c97a2b54caa22500026
           sortingKey: "000008"
-          contentHash: 83201afb
           type: code
           content: diamonds.loc[(diamonds.z == 0)]
           metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
             deepnote_table_state:
               sortBy: []
               filters: []
@@ -128,27 +116,22 @@ project:
               conditionalFilters: []
               cellFormattingRules: []
               wrappedTextColumnIds: []
-            deepnote_table_loading: false
         - id: b7380277d3db4fc78f9d8cf597949685
           blockGroup: c16e483117f1438ab36e30ceed006855
           sortingKey: "000009"
-          contentHash: 178e761c
           type: code
           content: >-
             diamonds = diamonds.loc[(diamonds[['x', 'y', 'z']]!=0).all(axis=1)]
 
 
             diamonds.shape
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: fbec3efa69934e7d9f198bc59b56837c
           blockGroup: 50febd1e15b04ebfbf8855f2556ffef6
           sortingKey: "000010"
-          contentHash: d220987a
           type: code
           content: diamonds.describe()
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: 27deae849a9044caa66e046e46a70c5c
           blockGroup: a1439109a0c74f02bf7d0ef7afeb2a35
           sortingKey: "000011"
@@ -159,31 +142,24 @@ project:
         - id: e967972f950741ff84127a22d4c11cb3
           blockGroup: 7f45d7a9040e499cbca94df77f9a859b
           sortingKey: "000012"
-          contentHash: f53b67aa
           type: code
           content: sns.boxplot(x=diamonds['carat'])
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: 588f4f5ae13c4c429980a875550a9ed6
           blockGroup: 79f9657d389c44c89dc0b354c1f2e1b5
           sortingKey: "000013"
-          contentHash: 37d10fa6
           type: code
           content: sns.boxplot(x=diamonds['table'])
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: 69b58e78946548e8ac699cf44c6e5c94
           blockGroup: 56231a6d5ce74c0a89dba106605b5fd7
           sortingKey: "000014"
-          contentHash: 262880c1
           type: code
           content: sns.boxplot(x=diamonds['x'])
-          metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+          metadata: {}
         - id: da3d3619ee504c2bafe08a448b345219
           blockGroup: 27949cdb5f7f42708c501f98044d20cb
           sortingKey: "000015"
-          contentHash: 41d2b3e
           type: code
           content: >-
             numeric_cols = diamonds.select_dtypes(include='number').columns
@@ -201,8 +177,118 @@ project:
             diamonds = diamonds[filter_outliers]
 
             diamonds.shape
+          metadata: {}
+        - id: 5a55d4f94587407cb2ea5e5c90e63846
+          blockGroup: 1cfcfe684bae4a1f9c1e5a57734f539c
+          sortingKey: "000016"
+          type: text-cell-h2
+          content: Univariate Analysis
           metadata:
-            execution_context_id: 64073dd8-34a8-405b-a5cf-d33923d8f8e9
+            formattedRanges: []
+        - id: 7069003d0a7b4452ba9649a675082a3d
+          blockGroup: 2b9568cf2a2948c48052e92c85e24f69
+          sortingKey: "000017"
+          type: code
+          content: >-
+            numerical_features = ['price', 'carat', 'depth', 'table', 'x', 'y', 'z']
+
+            categorical_features = ['cut', 'color', 'clarity']
+          metadata: {}
+        - id: ead9dc4420224366b92129483a1e6a84
+          blockGroup: b67d5688d36f434795a78869b8a582a7
+          sortingKey: "000018"
+          type: text-cell-h3
+          content: Categorical Features
+          metadata:
+            formattedRanges: []
+        - id: d0629b266aab41219ef528226e83898c
+          blockGroup: 55e345a91d8d4d48a3471ffc5c9d9639
+          sortingKey: "000019"
+          type: text-cell-h3
+          content: Cut Feature
+          metadata:
+            formattedRanges: []
+        - id: 16ca505b3f6241b4b197257c2b423dc8
+          blockGroup: ad3e164cdf8a4526a5ef09e04606e432
+          sortingKey: "000020"
+          type: code
+          content: >-
+            feature = categorical_features[0]
+
+            count = diamonds[feature].value_counts()
+
+            percent = 100 * diamonds[feature].value_counts(normalize=True)
+
+            df = pd.DataFrame({'jumlah sampel': count, 'persentase': percent.round(1)})
+
+            print(df)
+
+            count.plot(kind='bar', title=feature)
+          metadata: {}
+        - id: 7cec933d82864103a87a70c270abb501
+          blockGroup: c92017a830e3492e8420c26a9cb1ce51
+          sortingKey: "000021"
+          type: text-cell-h3
+          content: Color Feature
+          metadata:
+            formattedRanges: []
+        - id: c9a5fe449a6c441596ffae57f2a4bee7
+          blockGroup: e557346a519a424ba085c79561101df0
+          sortingKey: "000022"
+          type: code
+          content: >-
+            feature = categorical_features[1]
+
+            count = diamonds[feature].value_counts()
+
+            percent = 100*diamonds[feature].value_counts(normalize=True)
+
+            df = pd.DataFrame({'jumlah sampel': count, 'persentase': percent.round(1)})
+
+            print(df)
+
+            count.plot(kind='bar', title=feature)
+          metadata: {}
+        - id: cba3fa2f86b347fe8bb6d284f5c51212
+          blockGroup: 0111c2834bf54c00a8e189e07236c60a
+          sortingKey: "000023"
+          type: text-cell-h3
+          content: Clarity Feature
+          metadata:
+            formattedRanges: []
+        - id: 2052f19d76e7489a9103e04052028085
+          blockGroup: 5d68f2febbda47bb98510913a83d5c13
+          sortingKey: "000024"
+          type: code
+          content: >-
+            feature = categorical_features[2]
+
+            count = diamonds[feature].value_counts()
+
+            percent = 100 * diamonds[feature].value_counts(normalize=True)
+
+            df = pd.DataFrame({'jumlah sampel': count, 'persentase': percent.round(1)})
+
+            print(df)
+
+            count.plot(kind='bar', title=feature)
+          metadata: {}
+        - id: 4911893db6bc43d493c8f143408e5636
+          blockGroup: 71932800b47e479da14e3aeb24cfb57d
+          sortingKey: "000025"
+          type: text-cell-h2
+          content: Numerical Features
+          metadata:
+            formattedRanges: []
+        - id: 50181e7b336a4f4592c55b9f7d50f0ab
+          blockGroup: 130efd1f20cc45e7a9556da579e32af8
+          sortingKey: "000026"
+          type: code
+          content: >-
+            diamonds.hist(bins=50, figsize=(20, 15))
+
+            plt.show()
+          metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
       isModule: false
