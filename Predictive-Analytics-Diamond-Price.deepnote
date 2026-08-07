@@ -1,0 +1,57 @@
+environment: {}
+execution: {}
+metadata:
+  createdAt: 2026-08-07T04:07:38.281Z
+  modifiedAt: 2026-08-07T04:31:54.906Z
+project:
+  id: 99010883-aef2-4687-9a5a-2336ff56ba50
+  integrations:
+    - id: 887df52d-b5ce-4549-b87c-f52e9857b02e
+      name: ml_use_case
+      type: github_package
+  name: ml-use-case
+  notebooks:
+    - blocks:
+        - id: 54f59501b1514a39bb0992038e580025
+          blockGroup: 857bf612eacc4dac9947425e32da66ee
+          sortingKey: "000000"
+          type: text-cell-h1
+          content: Data Loading
+          metadata:
+            formattedRanges: []
+        - id: 6d6b162bf44e4d159ce1e85ab40114f4
+          blockGroup: 9bb44c839d2943859d6b309fb2867454
+          sortingKey: "000001"
+          contentHash: b4ed8d22
+          type: code
+          content: >-
+            import numpy as np
+
+            import matplotlib.pyplot as plt
+
+            import pandas as pd
+
+            %matplotlib inline
+
+            import seaborn as sns
+          metadata:
+            execution_context_id: ca19a55a-472b-4756-9b3c-0d1c4c2d7031
+        - id: f2f63b779d394ddca85a0f916947ce02
+          blockGroup: fcad79c9ae2d4d02af6dd0ece4ec49a0
+          sortingKey: "000002"
+          contentHash: f8ba190f
+          type: code
+          content: >-
+            url = 'https://raw.githubusercontent.com/tidyverse/ggplot2/master/data-raw/diamonds.csv'
+
+            diamonds = pd.read_csv(url)
+
+            diamonds
+          metadata:
+            execution_context_id: ca19a55a-472b-4756-9b3c-0d1c4c2d7031
+      executionMode: block
+      id: b9240fbfa2194777aec2104ea899c200
+      isModule: false
+      name: Predictive Analytics Diamond Price
+      workingDirectory: /
+version: 1.0.0
