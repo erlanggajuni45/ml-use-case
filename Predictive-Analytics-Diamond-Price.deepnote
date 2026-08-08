@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-08T08:26:14.189Z
+  modifiedAt: 2026-08-08T13:19:20.815Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -510,6 +510,28 @@ project:
             knn.fit(X_train, y_train)
              
             models.loc['train_mse','knn'] = mean_squared_error(y_pred = knn.predict(X_train), y_true=y_train)
+          metadata: {}
+        - id: 83a464cc3952472682b88e9c8c3d9706
+          blockGroup: 1e2d2a0e30ae454dbc16f0084189aa80
+          sortingKey: "000050"
+          type: text-cell-h2
+          content: Random Forest
+          metadata:
+            formattedRanges: []
+        - id: c387a1f62a8044a88d32a8a6d41a98ec
+          blockGroup: 01899661952d40e596564ca921466d33
+          sortingKey: "000051"
+          type: code
+          content: >-
+            from sklearn.ensemble import RandomForestRegressor
+
+
+            RF = RandomForestRegressor(n_estimators=50, max_depth=16, random_state=55, n_jobs=-1)
+
+            RF.fit(X_train, y_train)
+
+
+            models.loc['train_mse','RandomForest'] = mean_squared_error(y_pred=RF.predict(X_train), y_true=y_train)
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
