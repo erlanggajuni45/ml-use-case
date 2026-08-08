@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-08T13:23:45.998Z
+  modifiedAt: 2026-08-08T14:38:38.193Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -553,6 +553,60 @@ project:
             boosting.fit(X_train, y_train)
 
             models.loc['train_mse','Boosting'] = mean_squared_error(y_pred=boosting.predict(X_train), y_true=y_train)
+          metadata: {}
+        - id: 0e909eef7ea54b96bfae154b23021240
+          blockGroup: c8fbc03a1787438996c7110beeaaae99
+          sortingKey: "000054"
+          type: text-cell-h2
+          content: Model Evaluation
+          metadata:
+            formattedRanges: []
+        - id: b2077bf1c0124fb2a2633c4a847938db
+          blockGroup: af3a0fe3d1594f3bb49101164c1fd806
+          sortingKey: "000055"
+          type: code
+          content: X_test.loc[:, numerical_features] = scaler.transform(X_test[numerical_features])
+          metadata: {}
+        - id: be50e7fa83a848f6a0b5d9e8b215ba81
+          blockGroup: 9dd7e9033bba4e96a7fe0fb2a8d798b9
+          sortingKey: "000056"
+          type: code
+          content: >-
+            mse = pd.DataFrame(columns=['train', 'test'], index=['KNN', 'RF', 'Boosting'])
+
+
+            model_dict = {'KNN': knn, 'RF': RF, 'Boosting': boosting}
+
+
+            for name, model in model_dict.items():
+                mse.loc[name, 'train'] = mean_squared_error(y_true=y_train, y_pred=model.predict(X_train))/1e3
+                mse.loc[name, 'test'] = mean_squared_error(y_true=y_test, y_pred=model.predict(X_test))/1e3
+
+            mse
+          metadata: {}
+        - id: a75a5a679b17400ebb3cb60501cf489b
+          blockGroup: 597721b157524e6aaf7dec4469fcf2ea
+          sortingKey: "000057"
+          type: code
+          content: >-
+            fig, ax = plt.subplots()
+
+            mse.sort_values(by='test', ascending=False).plot(kind='barh', ax=ax, zorder=3)
+
+            ax.grid(zorder=0)
+          metadata: {}
+        - id: 3eb99c8e76de49f39eb439d31097e3a1
+          blockGroup: 87c4e2dfe7b543599728adf87fdca487
+          sortingKey: "000058"
+          type: code
+          content: >-
+            prediksi = X_test.iloc[:1].copy()
+
+            pred_dict = {'y_true': y_test[:1]}
+
+            for name, model in model_dict.items():
+                pred_dict['prediksi_'+name] = model.predict(prediksi).round(1)
+            pd.DataFrame(pred_dict)
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
