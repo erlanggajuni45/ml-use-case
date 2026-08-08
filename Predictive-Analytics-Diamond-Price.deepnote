@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-08T07:49:55.475Z
+  modifiedAt: 2026-08-08T08:02:57.863Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -416,6 +416,34 @@ project:
           sortingKey: "000040"
           type: code
           content: diamonds.head()
+          metadata: {}
+        - id: 1ce7fae0006c42998e4b914b75a8ec5f
+          blockGroup: 38828edcd13240aa98995702f20680d2
+          sortingKey: "000041"
+          type: text-cell-h2
+          content: Train-Test-Split
+          metadata:
+            formattedRanges: []
+        - id: d95c92815f2e4c40948eddee8b5ce96f
+          blockGroup: ed8395647e394d37bb7799d6fed33574
+          sortingKey: "000042"
+          type: code
+          content: >-
+            from sklearn.model_selection import train_test_split
+
+
+            X = diamonds.drop(['price'], axis=1)
+
+            y = diamonds['price']
+
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.1, random_state=123)
+
+
+            print(f'Total # of sample in whole dataset: {len(X)}')
+
+            print(f'Total # of sample in train dataset: {len(X_train)}')
+
+            print(f'Total # of sample in test dataset: {len(X_test)}')
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
