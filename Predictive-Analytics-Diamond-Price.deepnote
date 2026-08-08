@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-08T08:09:02.878Z
+  modifiedAt: 2026-08-08T08:26:14.189Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -475,6 +475,41 @@ project:
           sortingKey: "000045"
           type: code
           content: X_train[numerical_features].describe().round(4)
+          metadata: {}
+        - id: 7109952309414ec0bed1944534e026e1
+          blockGroup: 1e8c55b4ad3141a5b9c1c0697a0991bf
+          sortingKey: "000046"
+          type: text-cell-h1
+          content: Model Development
+          metadata:
+            formattedRanges: []
+        - id: 11c650d6faa547e79adb6de39ce0d5ae
+          blockGroup: fd6e4db2f0284c78a2a353c6b4468b29
+          sortingKey: "000047"
+          type: code
+          content: models = pd.DataFrame(index=['train_mse', 'test_mse'], columns=['KNN', 'RandomForest', 'Boosting'])
+          metadata: {}
+        - id: 34f45e2c19da41908b38287ad5a6f50d
+          blockGroup: 962e8f559e9a49adaef0b06934c93cf9
+          sortingKey: "000048"
+          type: text-cell-h2
+          content: K-Nearest Neighbors
+          metadata:
+            formattedRanges: []
+        - id: 49e2692949934f62bbf703fb46cd157b
+          blockGroup: 4a3d04409acb42e8800688b5ca8573d8
+          sortingKey: "000049"
+          type: code
+          content: >-
+            from sklearn.neighbors import KNeighborsRegressor
+
+            from sklearn.metrics import mean_squared_error
+             
+            knn = KNeighborsRegressor(n_neighbors=10)
+
+            knn.fit(X_train, y_train)
+             
+            models.loc['train_mse','knn'] = mean_squared_error(y_pred = knn.predict(X_train), y_true=y_train)
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
