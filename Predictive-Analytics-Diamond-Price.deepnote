@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-08T07:41:27.515Z
+  modifiedAt: 2026-08-08T07:49:55.475Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -381,6 +381,41 @@ project:
             diamonds.drop(['cut', 'color', 'clarity'], axis=1, inplace=True)
 
             diamonds.head()
+          metadata: {}
+        - id: d6e480f70f6b45d38ec8a70e9b496699
+          blockGroup: 3368ba69ea644c768e8dbf3f041a6943
+          sortingKey: "000037"
+          type: text-cell-h2
+          content: Dimension Reduction with PCA
+          metadata:
+            formattedRanges: []
+        - id: 8b6836971cfb47fa9b79d2847109e233
+          blockGroup: 2951ccf3f6ca4dc99f8d216476708a36
+          sortingKey: "000038"
+          type: code
+          content: "sns.pairplot(diamonds[['x', 'y', 'z']], plot_kws={\"s\": 3})"
+          metadata: {}
+        - id: 51b97ac24b9e4f8fb8bb8fb6447cb241
+          blockGroup: 86dd4221504e4fef9f2f0efaf9d2b61b
+          sortingKey: "000039"
+          type: code
+          content: >-
+            from sklearn.decomposition import PCA
+
+
+            pca = PCA(n_components=1, random_state=123)
+
+            pca.fit(diamonds[['x', 'y', 'z']])
+
+            diamonds['dimension'] = pca.transform(diamonds.loc[:, ('x', 'y', 'z')]).flatten()
+
+            diamonds.drop(['x', 'y', 'z'], axis=1, inplace=True)
+          metadata: {}
+        - id: 9c5af042175a48adabc6b96039aaa353
+          blockGroup: 48f6895662e149b9b9e082be4ccc48b9
+          sortingKey: "000040"
+          type: code
+          content: diamonds.head()
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
