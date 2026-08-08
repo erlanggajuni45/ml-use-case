@@ -2,7 +2,7 @@ environment: {}
 execution: {}
 metadata:
   createdAt: 2026-08-07T04:07:38.281Z
-  modifiedAt: 2026-08-08T08:02:57.863Z
+  modifiedAt: 2026-08-08T08:09:02.878Z
 project:
   id: 99010883-aef2-4687-9a5a-2336ff56ba50
   integrations:
@@ -444,6 +444,37 @@ project:
             print(f'Total # of sample in train dataset: {len(X_train)}')
 
             print(f'Total # of sample in test dataset: {len(X_test)}')
+          metadata: {}
+        - id: e9fa1948ee0647809a439a2f0daeb206
+          blockGroup: 14d427eaeec74b319d8d555a6aa4ef74
+          sortingKey: "000043"
+          type: text-cell-h2
+          content: Standarization
+          metadata:
+            formattedRanges: []
+        - id: 61bb00b96ff94fc79c4683a38083be9f
+          blockGroup: 2580353951964d1392f259c9a68bfa84
+          sortingKey: "000044"
+          type: code
+          content: >-
+            from sklearn.preprocessing import StandardScaler
+
+
+            numerical_features = ['carat', 'table', 'dimension']
+
+            scaler = StandardScaler()
+
+            scaler.fit(X_train[numerical_features])
+
+            X_train[numerical_features] = scaler.transform(X_train.loc[:, numerical_features])
+
+            X_train[numerical_features].head()
+          metadata: {}
+        - id: 194bf361a1f047b5a589f25227629b59
+          blockGroup: a79bd1d89ae44b08ad74cd6f3e439c09
+          sortingKey: "000045"
+          type: code
+          content: X_train[numerical_features].describe().round(4)
           metadata: {}
       executionMode: block
       id: b9240fbfa2194777aec2104ea899c200
